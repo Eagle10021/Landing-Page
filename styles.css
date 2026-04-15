@@ -1,13 +1,48 @@
 :root {
-    /* Hatsune Miku Palette */
+    /* Accent color */
+    --neru-yellow: #F1C40F;
+    
+    /* Dark theme base */
     --miku-blue: #39C5BB;
     --miku-blue-glow: rgba(57, 197, 187, 0.5);
-    --miku-dark: #122129;
-    --bg-dark: #05080f;
-    --text-main: #e2f1f5;
-    --text-dim: #8a9ba8;
-    --glass-bg: rgba(18, 33, 41, 0.4);
-    --glass-border: rgba(57, 197, 187, 0.15);
+    --bg-dark: #020617; /* deep slate */
+    --text-dark-theme: #e2f1f5;
+    --text-dim-dark: #8a9ba8;
+    --glass-bg-dark: rgba(18, 33, 41, 0.4);
+    --glass-border-dark: rgba(57, 197, 187, 0.15);
+
+    /* Light theme base */
+    --teto-pink: #D03E5C;
+    --teto-pink-glow: rgba(208, 62, 92, 0.5);
+    --bg-light: #FFF1F2; /* soft rose */
+    --text-light-theme: #2d1b22;
+    --text-dim-light: #6e5c62;
+    --glass-bg-light: rgba(255, 255, 255, 0.6);
+    --glass-border-light: rgba(208, 62, 92, 0.2);
+}
+
+/* Dark mode rules */
+body.dark-mode {
+    --primary: var(--miku-blue);
+    --primary-glow: var(--miku-blue-glow);
+    --bg: var(--bg-dark);
+    --text-main: var(--text-dark-theme);
+    --text-dim: var(--text-dim-dark);
+    --glass-bg: var(--glass-bg-dark);
+    --glass-border: var(--glass-border-dark);
+    --transition-color: var(--teto-pink);
+}
+
+/* Light mode rules */
+body.light-mode {
+    --primary: var(--teto-pink);
+    --primary-glow: var(--teto-pink-glow);
+    --bg: var(--bg-light);
+    --text-main: var(--text-light-theme);
+    --text-dim: var(--text-dim-light);
+    --glass-bg: var(--glass-bg-light);
+    --glass-border: var(--glass-border-light);
+    --transition-color: var(--miku-blue);
 }
 
 * {
@@ -18,19 +53,70 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
     color: var(--text-main);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* For background animations */
+    overflow-x: hidden;
     position: relative;
+    /* transition: background-color 0.5s ease, color 0.5s ease; */
 }
 
-/* Background Animation Layer */
-.bg-elements {
+/* Theme transition blinds */
+.transition-blinds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    pointer-events: none;
+}
+
+.blind {
+    flex: 1;
+    background-color: var(--transition-color);
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+
+/* Navigation */
+.top-nav {
     position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#theme-toggle {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    border-color: var(--neru-yellow);
+    color: var(--neru-yellow);
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.3);
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Background canvas */
+.bg-elements {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -41,13 +127,13 @@ body {
 
 .mote {
     position: absolute;
-    background-color: var(--miku-blue);
+    background-color: var(--primary);
     border-radius: 2px;
     opacity: 0;
-    filter: drop-shadow(0 0 5px var(--miku-blue));
+    transition: background-color 0.5s ease;
 }
 
-/* Main Container */
+/* Gateway container */
 .gateway-container {
     position: relative;
     z-index: 10;
@@ -57,11 +143,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    margin-top: 100px;
 }
 
-/* Hero Section */
+/* Typography */
 .hero {
     text-align: center;
+    opacity: 0;
 }
 
 .hero-title {
@@ -73,15 +161,16 @@ body {
     justify-content: center;
     align-items: center;
     gap: 2px;
-    opacity: 0; /* Setup for Anime.js */
 }
 
 .hero-title .digit {
-    color: var(--miku-blue);
+    color: var(--primary);
+    transition: color 0.5s ease;
 }
 
 .hero-title .word {
     color: var(--text-main);
+    transition: color 0.5s ease;
 }
 
 .hero-subtitle {
@@ -90,10 +179,10 @@ body {
     color: var(--text-dim);
     letter-spacing: 4px;
     text-transform: uppercase;
-    opacity: 0; /* Setup for Anime.js */
+    transition: color 0.5s ease;
 }
 
-/* Portal Grid */
+/* Grid layout */
 .portal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -110,11 +199,13 @@ body {
     color: var(--text-main);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
-    opacity: 0; /* Setup for Anime.js */
-    transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
 }
+
+/* Only transition color properties */
 
 .card-content {
     position: relative;
@@ -124,11 +215,12 @@ body {
 .card-number {
     font-family: monospace;
     font-size: 1.5rem;
-    color: var(--miku-blue);
+    color: var(--primary);
     font-weight: 700;
-    opacity: 0.6;
+    opacity: 0.8;
     display: block;
     margin-bottom: 1rem;
+    transition: color 0.5s ease;
 }
 
 .portal-card h2 {
@@ -142,9 +234,10 @@ body {
     color: var(--text-dim);
     font-weight: 300;
     line-height: 1.5;
+    transition: color 0.5s ease;
 }
 
-/* Hover Effects */
+/* Card hovers */
 .card-glow {
     position: absolute;
     top: 50%;
@@ -152,7 +245,7 @@ body {
     transform: translate(-50%, -50%);
     width: 0;
     height: 0;
-    background: radial-gradient(circle, var(--miku-blue-glow) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
     opacity: 0;
     transition: all 0.5s ease;
     z-index: 1;
@@ -160,9 +253,7 @@ body {
 }
 
 .portal-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--miku-blue);
-    box-shadow: 0 10px 30px rgba(57, 197, 187, 0.1);
+    border-color: var(--neru-yellow);
 }
 
 .portal-card:hover .card-glow {
@@ -172,21 +263,12 @@ body {
 }
 
 .portal-card:hover h2 {
-    color: var(--miku-blue);
+    color: var(--primary);
 }
 
-/* Responsiveness */
+/* Responsive queries */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 3.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-        letter-spacing: 2px;
-    }
-    
-    .gateway-container {
-        gap: 3rem;
-    }
+    .hero-title { font-size: 3.5rem; }
+    .hero-subtitle { font-size: 1rem; letter-spacing: 2px; }
+    .gateway-container { gap: 3rem; margin-top: 80px; }
 }
