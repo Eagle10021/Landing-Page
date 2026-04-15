@@ -1,3 +1,12 @@
+// Immediate theme check
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll reveal animations
@@ -55,7 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme toggle logic
     const themeBtn = document.getElementById('theme-toggle');
     const body = document.body;
-    let isDark = !body.classList.contains('light-mode');
+    
+    // Sync isDark with whatever is actually on the body right now
+    let isDark = body.classList.contains('dark-mode');
 
     themeBtn.addEventListener('click', () => {
         // Disable button during transition
