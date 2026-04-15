@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme toggle logic
     const themeBtn = document.getElementById('theme-toggle');
     const body = document.body;
-    let isDark = true;
+    let isDark = !body.classList.contains('light-mode');
 
     themeBtn.addEventListener('click', () => {
         // Disable button during transition
@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             complete: () => {
                 // Swap themes
                 isDark = !isDark;
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                
                 if (isDark) {
                     body.classList.remove('light-mode');
                     body.classList.add('dark-mode');
