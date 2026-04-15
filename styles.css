@@ -1,0 +1,192 @@
+:root {
+    /* Hatsune Miku Palette */
+    --miku-blue: #39C5BB;
+    --miku-blue-glow: rgba(57, 197, 187, 0.5);
+    --miku-dark: #122129;
+    --bg-dark: #05080f;
+    --text-main: #e2f1f5;
+    --text-dim: #8a9ba8;
+    --glass-bg: rgba(18, 33, 41, 0.4);
+    --glass-border: rgba(57, 197, 187, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* For background animations */
+    position: relative;
+}
+
+/* Background Animation Layer */
+.bg-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.mote {
+    position: absolute;
+    background-color: var(--miku-blue);
+    border-radius: 2px;
+    opacity: 0;
+    filter: drop-shadow(0 0 5px var(--miku-blue));
+}
+
+/* Main Container */
+.gateway-container {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 1000px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    opacity: 0; /* Setup for Anime.js */
+}
+
+.hero-title .digit {
+    color: var(--miku-blue);
+}
+
+.hero-title .word {
+    color: var(--text-main);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-dim);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0; /* Setup for Anime.js */
+}
+
+/* Portal Grid */
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.portal-card {
+    position: relative;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    opacity: 0; /* Setup for Anime.js */
+    transform: translateY(20px);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.card-number {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: var(--miku-blue);
+    font-weight: 700;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.portal-card h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.portal-card p {
+    color: var(--text-dim);
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* Hover Effects */
+.card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--miku-blue-glow) 0%, transparent 70%);
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.portal-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--miku-blue);
+    box-shadow: 0 10px 30px rgba(57, 197, 187, 0.1);
+}
+
+.portal-card:hover .card-glow {
+    width: 200%;
+    height: 200%;
+    opacity: 0.5;
+}
+
+.portal-card:hover h2 {
+    color: var(--miku-blue);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    
+    .gateway-container {
+        gap: 3rem;
+    }
+}
