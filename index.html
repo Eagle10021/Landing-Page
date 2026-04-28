@@ -22,6 +22,10 @@
 </head>
 
 <body class="dark-mode">
+    <div class="crt-overlay"></div>
+    <div class="crt-noise"></div>
+    <div class="scanline"></div>
+    <div class="crt-startup"></div>
 
     <!-- Theme transition overlay -->
     <div class="transition-blinds">
@@ -53,6 +57,7 @@
 
     <!-- Background elements -->
     <div class="bg-elements"></div>
+    <div class="bg-grid"></div>
 
     <main class="gateway-container">
         <!-- Hero Header -->
@@ -67,7 +72,9 @@
         <section class="portal-grid">
 
             <a href="https://manifest.01blue.org" class="portal-card scroll-reveal" id="card-archive">
+                <span class="status-badge">Live</span>
                 <div class="card-glow"></div>
+                <div class="card-shine"></div>
                 <div class="card-content">
                     <span class="card-number">01</span>
                     <h2>Portfolio</h2>
@@ -76,7 +83,9 @@
             </a>
 
             <a href="https://cursorport.01blue.org/" class="portal-card scroll-reveal" id="card-cursorport">
+                <span class="status-badge">Active</span>
                 <div class="card-glow"></div>
+                <div class="card-shine"></div>
                 <div class="card-content">
                     <span class="card-number">02</span>
                     <h2>Cursorport</h2>
@@ -87,7 +96,9 @@
             <!-- Experiments link -->
             <a href="https://eagle10021.github.io/BeamNG-Livery-Maker/" class="portal-card scroll-reveal"
                 id="card-livery">
+                <span class="status-badge">Experimental</span>
                 <div class="card-glow"></div>
+                <div class="card-shine"></div>
                 <div class="card-content">
                     <span class="card-number">03</span>
                     <h2>BeamNG Livery Maker</h2>
@@ -100,6 +111,9 @@
         <!-- Bottom spacer -->
         <div class="spacer" style="height: 40vh;"></div>
     </main>
+
+    <!-- Terminal Console -->
+    <div class="terminal-console" id="terminal"></div>
 
     <!-- Anime.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
