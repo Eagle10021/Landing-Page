@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01blue | Gateway</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
+
     <!-- Content Security Policy to enforce secure asset loading -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://ajax.cloudflare.com https://static.cloudflareinsights.com; upgrade-insecure-requests;">
-    
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://ajax.cloudflare.com https://static.cloudflareinsights.com; upgrade-insecure-requests;">
+
     <!-- Google Fonts: Outfit for a modern, digital feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
-    
+
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="dark-mode">
 
     <!-- Theme transition overlay -->
@@ -31,7 +34,8 @@
     <!-- Navigation -->
     <nav class="top-nav">
         <button id="theme-toggle" aria-label="Toggle Theme">
-            <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg id="theme-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <!-- Theme toggle icon -->
                 <circle cx="12" cy="12" r="5"></circle>
                 <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -45,7 +49,7 @@
             </svg>
         </button>
     </nav>
-    
+
     <!-- Background elements -->
     <div class="bg-elements"></div>
 
@@ -60,7 +64,7 @@
 
         <!-- Project Links -->
         <section class="portal-grid">
-            
+
             <a href="https://manifest.01blue.org" class="portal-card scroll-reveal" id="card-archive">
                 <div class="card-glow"></div>
                 <div class="card-content">
@@ -80,17 +84,18 @@
             </a>
 
             <!-- Experiments link -->
-            <a href="#" class="portal-card scroll-reveal" id="card-experiments">
+            <a href="https://eagle10021.github.io/BeamNG-Livery-Maker/" class="portal-card scroll-reveal"
+                id="card-livery">
                 <div class="card-glow"></div>
                 <div class="card-content">
                     <span class="card-number">03</span>
-                    <h2>Experiments</h2>
-                    <p>Coming soon: CSS and Animation labs.</p>
+                    <h2>BeamNG Livery Maker</h2>
+                    <p>A web-based liver maker for BeamNG vehicles</p>
                 </div>
             </a>
-            
+
         </section>
-        
+
         <!-- Bottom spacer -->
         <div class="spacer" style="height: 40vh;"></div>
     </main>
@@ -100,4 +105,5 @@
     <!-- Animation logic -->
     <script src="script.js"></script>
 </body>
+
 </html>
