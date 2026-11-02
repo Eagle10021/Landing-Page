@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01blue</title>
-    <meta name="description" content="Arshdeep Sahota's projects on the web: portfolio, Mega Kit Pinouts, Cursorport, BeamNG Livery Maker, Legion Control and more.">
+    <meta name="description" content="Arshdeep Sahota's corner of the web: portfolio, Mega Kit Pinouts, Cursorport, BeamNG Livery Maker, Legion Control and more.">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://ajax.cloudflare.com https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; upgrade-insecure-requests;">
-    <meta name="theme-color" content="#0b2e6f" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#eef3fb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#061423" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fff1f2" media="(prefers-color-scheme: light)">
     <meta property="og:title" content="01blue">
-    <meta property="og:description" content="Arshdeep Sahota's projects on the web.">
+    <meta property="og:description" content="Arshdeep Sahota's corner of the web.">
     <meta property="og:url" content="https://01blue.org/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
 
     <!-- Apply the saved theme before the page paints, so it never flashes the wrong one -->
     <script>
@@ -29,79 +29,97 @@
 </head>
 
 <body>
+    <!-- Living background: glow, perspective grid, drifting motes and notes (script.js) -->
+    <div class="bg" aria-hidden="true">
+        <div class="glow"></div>
+        <div class="grid"></div>
+        <div class="motes"></div>
+    </div>
+
+    <!-- Theme switch curtain -->
+    <div class="blinds" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
     <header class="top">
         <a class="home" href="/">01blue.org</a>
         <button id="theme-toggle" class="theme-toggle" type="button">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z"/></svg>
-            <span id="theme-label">Light mode</span>
+            <span id="theme-label">Teto mode</span>
         </button>
     </header>
 
     <main>
-        <section class="hero" aria-labelledby="mark">
-            <h1 id="mark" class="mark" aria-label="01blue"><span aria-hidden="true">0</span><span aria-hidden="true">1</span><span aria-hidden="true">b</span><span aria-hidden="true">l</span><span aria-hidden="true">u</span><span aria-hidden="true">e</span></h1>
-            <p class="intro">Hi, I'm Arshdeep. These are the things I've built that you can open in a browser or download, from my portfolio to small tools for Linux, Arduino and BeamNG.</p>
+        <section class="hero">
+            <h1 class="mark-wrap">
+                <button class="mark" id="mark" type="button" aria-label="01blue. Click to play a little tune.">
+                    <span class="num" aria-hidden="true"><span>0</span><span>1</span></span><span class="word" aria-hidden="true"><span>b</span><span>l</span><span>u</span><span>e</span></span>
+                </button>
+            </h1>
+            <div class="eq" id="eq" aria-hidden="true"></div>
+            <p class="intro">Hi, I'm Arshdeep. The name comes from Miku's 01. I'm into Vocaloid, anime games, my home server and sim racing, and these are the things I've built along the way.</p>
+            <ul class="likes" aria-label="Things I'm into">
+                <li>Vocaloid</li><li>Wuthering Waves</li><li>Blue Archive</li><li>Homelab</li><li>Arch + KDE</li><li>BeamNG</li>
+            </ul>
         </section>
 
         <section class="group" aria-labelledby="g-web">
             <h2 id="g-web">On 01blue.org</h2>
-            <ul class="list">
-                <li>
-                    <a class="row" href="https://manifest.01blue.org/">
-                        <span class="name">Portfolio</span>
-                        <span class="what">My experience, projects, home lab, photography and resume.</span>
-                        <span class="where">manifest.01blue.org</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="row" href="https://pinouts.01blue.org/">
-                        <span class="name">Mega Kit Pinouts <span class="new">New</span></span>
-                        <span class="what">Interactive pinouts for the Arduino Mega 2560 and every part in the ELEGOO starter kit, with wiring and resistor help.</span>
-                        <span class="where">pinouts.01blue.org</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="row" href="https://cursorport.01blue.org/">
-                        <span class="name">Cursorport</span>
-                        <span class="what">Turns Windows cursor schemes into cursor themes for Linux, right in your browser.</span>
-                        <span class="where">cursorport.01blue.org</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="row" href="https://eagle10021.github.io/BeamNG-Livery-Maker/">
-                        <span class="name">BeamNG Livery Maker</span>
-                        <span class="what">Design vehicle skins for BeamNG.drive and export them ready for the game.</span>
-                        <span class="where">eagle10021.github.io</span>
-                    </a>
-                </li>
-            </ul>
+            <div class="cards">
+                <a class="card" href="https://manifest.01blue.org/">
+                    <span class="spot"></span>
+                    <span class="meta"><span class="tag">About me</span></span>
+                    <h3>Portfolio</h3>
+                    <p>My experience, projects, home lab, photography and resume.</p>
+                    <span class="addr">manifest.01blue.org</span>
+                </a>
+                <a class="card" href="https://pinouts.01blue.org/">
+                    <span class="spot"></span>
+                    <span class="meta"><span class="tag">Arduino</span><span class="new">New</span></span>
+                    <h3>Mega Kit Pinouts</h3>
+                    <p>Interactive pinouts for the Arduino Mega 2560 and every part in the ELEGOO starter kit, with wiring and resistor help.</p>
+                    <span class="addr">pinouts.01blue.org</span>
+                </a>
+                <a class="card" href="https://cursorport.01blue.org/">
+                    <span class="spot"></span>
+                    <span class="meta"><span class="tag">Linux tool</span></span>
+                    <h3>Cursorport</h3>
+                    <p>Turns Windows cursor schemes into cursor themes for Linux, right in your browser.</p>
+                    <span class="addr">cursorport.01blue.org</span>
+                </a>
+                <a class="card" href="https://eagle10021.github.io/BeamNG-Livery-Maker/">
+                    <span class="spot"></span>
+                    <span class="meta"><span class="tag">Sim racing</span></span>
+                    <h3>BeamNG Livery Maker</h3>
+                    <p>Design vehicle skins for BeamNG.drive and export them ready for the game.</p>
+                    <span class="addr">eagle10021.github.io</span>
+                </a>
+            </div>
         </section>
 
         <section class="group" aria-labelledby="g-code">
             <h2 id="g-code">On GitHub</h2>
-            <ul class="list">
-                <li>
-                    <a class="row" href="https://github.com/Eagle10021/Legion-Controller">
-                        <span class="name">Legion Control</span>
-                        <span class="what">A Linux app for Lenovo Legion laptops: RGB keyboard lighting, effects, battery health and charging modes.</span>
-                        <span class="where">Eagle10021/Legion-Controller</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="row" href="https://github.com/Eagle10021/Arona-SDDM-Login">
-                        <span class="name">Arona SDDM Login</span>
-                        <span class="what">A Blue Archive login screen for KDE's SDDM, updated for Qt&nbsp;6.</span>
-                        <span class="where">Eagle10021/Arona-SDDM-Login</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="row" href="https://github.com/Eagle10021/AC-Print-Guide-Linux">
-                        <span class="name">Algonquin Printing on Linux</span>
-                        <span class="what">A setup guide that gets Algonquin College students printing from Linux.</span>
-                        <span class="where">Eagle10021/AC-Print-Guide-Linux</span>
-                    </a>
-                </li>
-            </ul>
+            <div class="cards three">
+                <a class="card" href="https://github.com/Eagle10021/Legion-Controller">
+                    <span class="spot"></span>
+                    <span class="meta"><span class="tag">Linux app</span></span>
+                    <h3>Legion Control</h3>
+                    <p>RGB keyboard lighting, effects, battery health and charging modes for Lenovo Legion laptops.</p>
+                    <span class="addr">Eagle10021/Legion-Controller</span>
+                </a>
+                <a class="card" href="https://github.com/Eagle10021/Arona-SDDM-Login">
+                    <span class="spot"></span>
+                    <span class="meta"><span class="tag">Blue Archive</span></span>
+                    <h3>Arona SDDM Login</h3>
+                    <p>An Arona login screen for KDE's SDDM, updated for Qt&nbsp;6.</p>
+                    <span class="addr">Eagle10021/Arona-SDDM-Login</span>
+                </a>
+                <a class="card" href="https://github.com/Eagle10021/AC-Print-Guide-Linux">
+                    <span class="spot"></span>
+                    <span class="meta"><span class="tag">Guide</span></span>
+                    <h3>Algonquin Printing on Linux</h3>
+                    <p>Gets Algonquin College students printing from Linux.</p>
+                    <span class="addr">Eagle10021/AC-Print-Guide-Linux</span>
+                </a>
+            </div>
         </section>
     </main>
 
@@ -110,6 +128,6 @@
         <p class="foot-links"><a href="https://github.com/Eagle10021">GitHub</a><a href="https://manifest.01blue.org/#contact">Contact</a></p>
     </footer>
 
-    <script type="module" src="script.js?v=2"></script>
+    <script type="module" src="script.js?v=3"></script>
 </body>
 </html>

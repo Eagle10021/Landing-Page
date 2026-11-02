@@ -3,9 +3,20 @@
 The front door of [01blue.org](https://01blue.org): a single page that lists my projects and where to find them.
 
 ## Design
-- **Colour**: in dark mode the page is deep cobalt (`#0b2e6f`) with Miku teal (`#39c5bb`) highlights. In light mode it flips: pale paper with cobalt text and Teto red (`#c8304f`) highlights. It follows the system theme until the toggle is used, then remembers the choice.
-- **Type**: [Bricolage Grotesque](https://fonts.google.com/specimen/Bricolage+Grotesque) throughout, with the condensed width for the wordmark.
-- **Motion** ([anime.js](https://animejs.com) v4): one entrance sequence on load, wordmark letters that stretch wide under the pointer and spring back, project names that nudge on hover, and a circular wipe when the theme changes. All of it is off under *reduce motion*, and the page works without it.
+The name comes from Hatsune Miku's shoulder number, 01.
+
+- **Themes**: *Miku* (dark): deep navy, Miku teal, and the red of her "01". *Teto* (light): soft rose with Teto red and teal. It follows the system theme until the toggle is used, then remembers the choice.
+- **Type**: [Bricolage Grotesque](https://fonts.google.com/specimen/Bricolage+Grotesque), condensed for the wordmark, with [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for addresses.
+- **Motion** ([anime.js](https://animejs.com) v4):
+  - one entrance sequence on load;
+  - a music-visualiser bar under the wordmark;
+  - clicking the wordmark plays a short synth tune (Web Audio, only on click);
+  - wordmark letters stretch under the pointer;
+  - frosted glass cards that tilt toward the mouse with a spotlight;
+  - a living background of drifting motes and music notes over a perspective grid;
+  - blinds in the other singer's colour when the theme changes.
+
+  All of it is off under *reduce motion*, and the page still works if anime.js can't load.
 - Plain HTML, CSS and JS. No build step.
 
 ## Links
