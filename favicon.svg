@@ -1,5 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <!-- Cobalt tile with "01", matching the landing page -->
-    <rect width="64" height="64" rx="14" fill="#0b2e6f" />
-    <text x="32" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="33" font-weight="800" letter-spacing="-2" text-anchor="middle" fill="#f2f6ff">01</text>
+    <!-- Dark background matching the glassmorphism base -->
+    <rect width="64" height="64" rx="16" fill="#020617" />
+    
+    <!-- "01" text using the Miku Teal and Teto Pink theme colors -->
+    <text x="32" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="900" text-anchor="middle">
+        <tspan fill="#39C5BB">0</tspan><tspan fill="#D03E5C">1</tspan>
+    </text>
 </svg>

@@ -21,3 +21,5 @@ The front door of [01blue.org](https://01blue.org): a single page that lists my 
 - [Algonquin Printing on Linux](https://github.com/Eagle10021/AC-Print-Guide-Linux)
 
 To add a project, copy one `<li>` in `index.html` and change its link, name, description and address.
+
+**When you change `styles.css` or `script.js`**, bump the `?v=` number on its link in `index.html`. Cloudflare caches those files for hours, and the new number makes visitors fetch the new version straight away.
