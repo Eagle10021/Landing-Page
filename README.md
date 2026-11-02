@@ -10,3 +10,9 @@ A premium, sleek digital gateway for 01blue.org, inspired by Hatsune Miku's sign
 ## Links
 - **Portfolio**: Routes to the personal portfolio website.
 - **Cursorport**: Routes to the custom cursors repository.
+- **BeamNG Livery Maker**: Browser-based livery maker for BeamNG.drive.
+- **Mega Kit Pinouts**: Interactive Arduino Mega 2560 + ELEGOO kit pinouts at [pinouts.01blue.org](https://pinouts.01blue.org).
+- **Legion Control** and **Arona SDDM Login**: open-source repos on GitHub.
+
+## Fonts
+[Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) for text and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for numbers, badges and the terminal.
